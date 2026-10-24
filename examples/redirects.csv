@@ -1,0 +1,5 @@
+source,target,status
+/old-guide,/guide,301
+/guide,/docs/guide,301
+/old-news,/news,302
+/offsite,https://example.org/archive,308

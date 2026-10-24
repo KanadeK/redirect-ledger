@@ -1,0 +1,10 @@
+name: Feature request
+description: Describe a concrete user workflow
+body:
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Problem and workflow
+      description: Who needs this, what input is available, and what result would help?
+    validations:
+      required: true

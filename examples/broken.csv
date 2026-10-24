@@ -1,0 +1,4 @@
+source,target,status
+/a,/b,301
+/b,/a,301
+/lost,/does-not-exist,308

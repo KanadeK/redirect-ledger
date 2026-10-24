@@ -9,6 +9,7 @@ import threading
 import unittest
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from unittest.mock import patch
 from urllib.error import HTTPError
 from urllib.request import HTTPRedirectHandler, build_opener
 
@@ -94,6 +95,14 @@ class Paths(unittest.TestCase):
 
 
 class Parsing(unittest.TestCase):
+    def test_limits_count_records_and_ignore_blank_inventory_lines(self):
+        with patch("redirect_ledger.core.MAX_RULES", 1):
+            self.assertEqual(parse_inventory("/a\n\n\n"), {"/a"})
+            with self.assertRaisesRegex(InputError, "exceeds"):
+                parse_inventory("/a\n/b\n")
+            with self.assertRaisesRegex(InputError, "exceeds"):
+                parse_rules("source,target,status\n/a,/b,301\n/c,/d,301\n")
+
     def test_rules_and_inventory(self):
         rules = parse_rules('source,target,status\r\n"/a,b","/c,d",301\r\n')
         self.assertEqual(rules, [Rule("/a,b", "/c,d", 301, 2)])

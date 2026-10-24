@@ -143,10 +143,10 @@ def parse_rules(text: str) -> list[Rule]:
 def parse_inventory(text: str) -> set[str]:
     paths: set[str] = set()
     for row, line in enumerate(text.splitlines(), 1):
-        if len(paths) >= MAX_RULES:
-            raise InputError("inventory exceeds 100000 paths")
         if not line:
             continue
+        if len(paths) >= MAX_RULES:
+            raise InputError("inventory exceeds 100000 paths")
         try:
             path = local_path(line)
         except InputError as exc:

@@ -14,4 +14,4 @@ Acceptance conditions:
 
 Review boundaries: this is an explicit functional-graph model, not a production routing engine. Absolute targets are intentionally terminal, and inventory membership is not a network existence check. Limiting URL syntax and refusing duplicate sources avoids silently selecting a rule. Reports escape URL strings in text and JSON, never include OS error paths, and the runtime has no network or subprocess capability.
 
-The source and tests are original. No runtime dependencies or third-party assets are distributed. Python standard-library APIs and CSV/URL format knowledge are used under their normal interfaces. Build backend setuptools (MIT), build (MIT), Ruff (MIT/Apache-2.0), and coverage.py (Apache-2.0) are development tools rather than bundled code.
+The source and tests are original. No runtime dependencies or third-party assets are distributed. Python standard-library APIs and CSV/URL format knowledge are used under their normal interfaces. Build backend setuptools (MIT), build (MIT), Ruff (MIT), and coverage.py (Apache-2.0) are development tools rather than bundled code.
